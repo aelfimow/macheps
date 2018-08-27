@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <stdexcept>
+#include <cstring>
 
 #include "macheps.h"
 

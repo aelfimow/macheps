@@ -18,7 +18,7 @@ all: compile link
 
 compile:
 	${CXX} -c main.cpp -o main.o ${CXXFLAGS}
-	${AS} result/macheps.S ${ASFLAGS64} -o macheps.o
+	${AS} macheps.S ${ASFLAGS64} -o macheps.o
 
 link:
 	${CXX} main.o macheps.o -o macheps.exe ${CXXFLAGS}
