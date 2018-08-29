@@ -9,6 +9,8 @@ static void compute_fp32()
 {
     fp32_params param;
 
+    std::memset(&param, 0, sizeof(param));
+
     macheps_fp32_init(&param);
 
     bool done = false;
@@ -31,6 +33,8 @@ static void compute_fp32()
 static void compute_fp64()
 {
     fp64_params param;
+
+    std::memset(&param, 0, sizeof(param));
 
     macheps_fp64_init(&param);
 
