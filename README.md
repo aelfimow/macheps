@@ -1,5 +1,22 @@
 # macheps
-Computation of the machine epsilon (macheps)
+Computation of the machine epsilon (`macheps`) on `x86` using approximating algorithm like:
+```
+value = 1.0;
+epsilon = 1.0;
+sum = value + epsilon;
+
+while (value != sum)
+{
+    epsilon = epsilon / 2.0;
+    sum = value + epsilon;
+}
+```
+
+The approach used [here](src) is:
+* Computations are done by assembly functions
+* Constants `1.0` and `2.0` are computed using corresponding FPU instructions
+* Comparison of the `value` and `sum` is done raw with `memcmp()` function
+* Additionally the loops are counted and printed out with the `epsilon`
 
 ## Single precision using FPU (IEEE 754: binary32, 32-bit)
 ```
