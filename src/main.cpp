@@ -51,6 +51,31 @@ static void compute_fp64()
     std::cout << "    epsilon: " << param.epsilon << std::endl;
 }
 
+static void compute_fp80()
+{
+    fp80_params param;
+
+    std::memset(&param, 0, sizeof(param));
+
+    macheps_fp80_init(&param);
+
+    bool done = false;
+    size_t loopcnt = 0;
+
+    while (!done)
+    {
+        macheps_fp80_compute(&param);
+
+        done = (0 == std::memcmp(&param.value, &param.sum, sizeof(fp80_t)));
+
+        ++loopcnt;
+    }
+
+    std::cout << "Machine epsilon (fp80): " << std::endl;
+    std::cout << "    Loop counter: " << loopcnt << std::endl;
+    std::cout << "    epsilon: " << param.epsilon << std::endl;
+}
+
 int main(int argc, char *argv[])
 try
 {
@@ -59,6 +84,7 @@ try
 
     compute_fp32();
     compute_fp64();
+    compute_fp80();
 
     return EXIT_SUCCESS;
 }
