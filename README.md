@@ -42,3 +42,5 @@ Machine epsilon (fp80):
 ## Note
 The assembly functions have been generated using my [cppasm](https://github.com/aelfimow/cppasm)
 generator.
+
+See also [macheps-128](https://github.com/aelfimow/macheps-128).
